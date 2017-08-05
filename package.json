@@ -1,0 +1,31 @@
+{
+  "name": "scapy-web-ui",
+  "version": "1.0.0",
+  "description": "A simple web interface that calls functions from the Scapy framework.",
+  "main": "gulpfile.coffee",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhatIsHeDoing/ScapyWebUI.git"
+  },
+  "keywords": [
+    "python",
+    "scapy",
+    "networking"
+  ],
+  "author": "WhatIsHeDoing",
+  "bugs": {
+    "url": "https://github.com/WhatIsHeDoing/ScapyWebUI/issues"
+  },
+  "homepage": "https://github.com/WhatIsHeDoing/ScapyWebUI#readme",
+  "devDependencies": {
+    "coffee": "^4.1.0",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-task-listing": "^1.0.1"
+  }
+}
