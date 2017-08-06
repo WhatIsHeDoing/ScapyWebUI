@@ -12,3 +12,4 @@ Feature: Trace Route
         Given I have entered the domain "duckduckgo.com"
         When I submit the form
         Then I see a graph
+        And I see a table

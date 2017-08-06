@@ -53,7 +53,17 @@ def see_a_graph(_):
     wait = WebDriverWait(world.driver, 20)
 
     try:
-        element = wait.until(WaitForHtmlToMatch((By.ID, "result"), "<svg"))
-        assert element is not None
+        graph = wait.until(WaitForHtmlToMatch((By.ID, "graph"), "<svg"))
+        assert graph is not None
+    except:
+        assert False
+
+@step
+def see_a_table(_):
+    wait = WebDriverWait(world.driver, 20)
+
+    try:
+        table = wait.until(WaitForHtmlToMatch((By.ID, "table"), "<table"))
+        assert table is not None
     except:
         assert False

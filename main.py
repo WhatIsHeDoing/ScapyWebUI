@@ -1,28 +1,43 @@
 #! /usr/bin/env python
 """Scapy Web UI: Single Page App."""
-from flask import Flask,render_template
+import time
+from flask import Flask, json, render_template
 from scapy.layers.inet import traceroute
 
 app = Flask(__name__)
+
+cached_trace_routes = {}
 
 @app.route("/")
 def index():
     """Renders the Single Page App."""
     return render_template("index.html")
 
-@app.route("/traceroute/<domain>")
+@app.route("/api/traceroute/<domain>")
 def trace_route(domain):
     """Performs a trace route and returns the SVG graph."""
     # http://scapy.readthedocs.io/en/latest/usage.html#tcp-traceroute-2
+    # Return the cached domain if it exists.
+    if domain in cached_trace_routes:
+        return cached_trace_routes[domain]
+
+    # Run trace route.
     result, _ = traceroute([domain], dport=[80,443], maxttl=20, retry=-2)
 
     # TODO Create the graph in memory.
-    filename = "/tmp/graph.svg"
+    filename = "/tmp/graph-" + domain + ".svg"
     output = "> " + filename
     result.graph(target=output)
+    time.sleep(1)
+    svg = open(filename).read()
 
-    # TODO Return JSON object with individual IPs.
-    return open(filename).read()
+    # Project simple details of the routes taken.
+    routes = [(tcp.dst, ip.sprintf("%dst%:%sport%")) for tcp, ip in result]
+
+    # Cache and return the result.
+    result = json.dumps({ "svg": svg, "routes": routes })
+    cached_trace_routes[domain] = result
+    return result
 
 if __name__ == "__main__":
     app.run()

@@ -7,7 +7,8 @@ $(document).ready ->
     $domain = $ "#domain"
     $domainGroup = $domain.parent()
     $domainHelp = $domainGroup.find(".help-block")
-    $result = $ "#result"
+    $table = $ "#table"
+    $graph = $ "#graph"
 
     # Create a reusable progress bar with no adjustable state, i.e. just in progress.
     $progressBar = $(
@@ -21,14 +22,21 @@ $(document).ready ->
         # Reset the status and set as in progress.
         $domainGroup.removeClass("has-success").removeClass("has-error")
         $domainHelp.text ""
-        $result.empty().append $progressBar
+        $table.empty().append $progressBar
+        $graph.empty()
 
-        $.get("/traceroute/" + encodeURI $domain.val())
-            .done((svg) ->
-                # TODO Use JSON and render IP table too.
+        $.get("/api/traceroute/" + encodeURI $domain.val())
+            .done((result) ->
+                data = JSON.parse result
                 $domainGroup.addClass "has-success"
-                $result.html svg)
+
+                $newTable = $('<table class="table table-bordered table-hover table-striped">' +
+                    ("<tr><td>#{route[0]}</td><td>#{route[1]}</td></tr>" for route in data.routes).join("") +
+                    "</table>")
+
+                $table.empty().append($newTable)
+                $graph.html data.svg)
             .fail(->
                 $domainGroup.addClass "has-error"
-                $result.empty()
+                $table.empty()
                 $domainHelp.text "Oops, there was a problem with that domain.")
