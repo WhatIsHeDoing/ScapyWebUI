@@ -1,5 +1,7 @@
 # Scapy Web UI
 
+![Video](scapy-web-ui.gif)
+
 ## Introduction
 This is a simple Python web interface -- powered by [Flask][flask] -- that calls functions from the [Scapy][scapy] framework.
 
