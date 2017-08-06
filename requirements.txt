@@ -1,6 +1,9 @@
 cryptography
 ecdsa
 flask
+lettuce
 numpy
+python-Levenshtein
 scapy
+selenium
 vpython

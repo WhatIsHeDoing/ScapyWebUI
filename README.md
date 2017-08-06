@@ -1,6 +1,6 @@
 # Scapy Web UI
 
-![Video](scapy-web-ui.gif)
+![Video](demo/scapy-web-ui.gif)
 
 ## Introduction
 This is a simple Python web interface -- powered by [Flask][flask] -- that calls functions from the [Scapy][scapy] framework.
@@ -15,6 +15,12 @@ Most of the dependencies can be installed using the setup script: `sudo sh setup
 ## Run
 Open a terminal and run `gulp && sudo python main.py`. You will likely need the `sudo` due to file and network I/O.
 
+## Test
+
+Whilst the web app is running, open a separate terminal and run the integration test suite with `lettuce features/`. This uses [Gherkin][gherkin] feature files that hook into Python [Lettuce][lettuce] scripts, which automate browser testing via [Selenium][selenium]. You should see a test output like this:
+
+![Tests](demo/lettuce-selenium-tests.png)
+
 ## Develop
 Use the `gulp watch` command to compile CoffeeScript changes on save. All Gulp commands can be listed using `gulp help`.
 
@@ -23,5 +29,8 @@ If you make changes to the source code whilst running the app, you may need to c
 [coffeescript]: http://coffeescript.org/
 [fedora]: https://getfedora.org/
 [flask]: http://flask.pocoo.org/ "Welcome | Flask (A Python Microframework)"
+[gherkin]: https://cucumber.io/docs/reference#gherkin "Reference - Cucumber"
+[lettuce]: http://lettuce.it/
 [gulp]: https://gulpjs.com/ "gulp.js"
 [scapy]: http://secdev.org/projects/scapy/
+[selenium]: http://selenium-python.readthedocs.io/ "Selenium with Python"

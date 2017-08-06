@@ -7,6 +7,7 @@ echo -e "${BLUE}Running Setup${NC}"
 echo -e "${YELLOW}Installing Fedora Packages...${NC}"
 
 sudo dnf install --assumeyes \
+    chromedriver \
     p0f \
     gnuplot \
     "graphviz*" \
