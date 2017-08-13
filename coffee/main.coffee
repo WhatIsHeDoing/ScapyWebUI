@@ -34,8 +34,12 @@ $(document).ready ->
                     ("<tr><td>#{route[0]}</td><td>#{route[1]}</td></tr>" for route in data.routes).join("") +
                     "</table>")
 
-                $table.empty().append($newTable)
-                $graph.html data.svg)
+                try
+                    d3.select("#graph").graphviz().renderDot(data.graph)
+                catch
+                    1
+
+                $table.empty().append($newTable))
             .fail(->
                 $domainGroup.addClass "has-error"
                 $table.empty()

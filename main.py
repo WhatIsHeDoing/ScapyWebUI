@@ -24,18 +24,18 @@ def trace_route(domain):
     # Run trace route.
     result, _ = traceroute([domain], dport=[80,443], maxttl=20, retry=-2)
 
-    # TODO Create the graph in memory.
-    filename = "/tmp/graph-" + domain + ".svg"
-    output = "> " + filename
-    result.graph(target=output)
-    time.sleep(1)
-    svg = open(filename).read()
+    # Convert to a dot graph.
+    dot = result.graph(string=True)
 
     # Project simple details of the routes taken.
     routes = [(tcp.dst, ip.sprintf("%dst%:%sport%")) for tcp, ip in result]
 
     # Cache and return the result.
-    result = json.dumps({ "svg": svg, "routes": routes })
+    result = json.dumps({
+        "graph": dot,
+        "routes": routes
+    })
+
     cached_trace_routes[domain] = result
     return result
 

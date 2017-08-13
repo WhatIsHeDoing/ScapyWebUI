@@ -6,13 +6,14 @@ echo -e "${BLUE}Running Setup${NC}"
 
 echo -e "${YELLOW}Installing Fedora Packages...${NC}"
 
-sudo dnf install --assumeyes \
+dnf install --assumeyes \
     chromedriver \
     p0f \
     gnuplot \
     "graphviz*" \
     ImageMagick
     nmap \
+    p0f \
     python-devel \
     python-matplotlib \
     python2-pyx.x86_64 \
@@ -20,7 +21,7 @@ sudo dnf install --assumeyes \
     texlive
 
 echo -e "${YELLOW}Installing Python Packages...${NC}"
-pip install -r requirements.txt
+pip install -r requirements.txt -user
 
 echo -e "${YELLOW}Installing NPM Packages...${NC}"
 npm install
