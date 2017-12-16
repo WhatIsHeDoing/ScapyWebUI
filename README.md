@@ -1,5 +1,7 @@
 # Scapy Web UI
 
+[![Known Vulnerabilities](https://snyk.io/test/github/WhatIsHeDoing/ScapyWebUI/badge.svg)](https://snyk.io/test/github/WhatIsHeDoing/ScapyWebUI)
+
 ![Video](demo/scapy-web-ui.gif)
 
 ## Introduction
