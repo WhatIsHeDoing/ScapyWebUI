@@ -6,3 +6,6 @@
 
 # NPM packages.
 node_modules/
+
+# Integration test evidence.
+screenshots/
