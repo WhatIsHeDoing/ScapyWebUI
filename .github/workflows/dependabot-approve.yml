@@ -1,0 +1,47 @@
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#automatically-approving-a-pull-request
+env:
+    CI: 1
+
+jobs:
+    dependabot:
+        if: github.event.pull_request.user.login == 'dependabot[bot]'
+        runs-on: ubuntu-24.04
+
+        steps:
+            - name: Fetch the Dependabot metadata
+              uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
+              with:
+                  github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: latest
+
+            - name: Update packages and install Just
+              run: |
+                  sudo apt-get update
+                  sudo snap install --edge --classic just
+
+            - name: Install dependencies
+              run: just install
+
+            - name: Lint
+              run: just lint
+
+            - name: Spellcheck
+              run: just spellcheck
+
+            - env:
+                  GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  PR_URL: ${{github.event.pull_request.html_url}}
+              name: Approve the Dependabot PR
+              run: gh pr review --approve "$PR_URL"
+
+name: Dependabot auto-approve
+on: pull_request
+permissions:
+    pull-requests: write
