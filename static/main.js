@@ -1,6 +1,6 @@
 $(document).ready(() => {
     // Prevent all forms from submitting on enter.
-    $("form").submit(e => e.preventDefault())
+    $("form").submit((e) => e.preventDefault())
 
     // Find all required elements.
     const $domain = $("#domain")
@@ -25,12 +25,19 @@ $(document).ready(() => {
         $graph.empty()
 
         $.get(`/api/traceroute/${encodeURI($domain.val())}`)
-            .done(result => {
+            .done((result) => {
                 const { graph, routes } = JSON.parse(result)
                 $domainGroup.addClass("has-success")
 
-                const $newTable = $('<table class="table table-bordered table-hover table-striped">')
-                routes.forEach(route => $newTable.append(`<tr><td>${route[0]}</td><td>${route[1]}</td></tr>`))
+                const $newTable = $(
+                    '<table class="table table-bordered table-hover table-striped">'
+                )
+
+                routes.forEach((route) => {
+                    $newTable.append(
+                        `<tr><td>${route[0]}</td><td>${route[1]}</td></tr>`
+                    )
+                })
 
                 // TODO Better error handling
                 try {
@@ -40,9 +47,7 @@ $(document).ready(() => {
                     console.error(e)
                 }
 
-                $table
-                    .empty()
-                    .append($newTable)
+                $table.empty().append($newTable)
             })
             .fail(() => {
                 $domainGroup.addClass("has-error")

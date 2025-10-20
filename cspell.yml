@@ -1,0 +1,24 @@
+ignorePaths:
+    - pnpm-lock.yaml
+ignoreWords:
+    - assumeyes
+    - chromedriver
+    - darrenhickling
+    - debconf
+    - devel
+    - dport
+    - duckduckgo
+    - graphviz
+    - justfile
+    - matplotlib
+    - maxttl
+    - nmap
+    - noninteractive
+    - pytest
+    - sprintf
+    - tcpdump
+    - texlive
+    - traceroute
+
+language: en-GB,en
+useGitignore: true

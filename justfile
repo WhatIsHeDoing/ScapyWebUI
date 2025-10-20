@@ -4,6 +4,9 @@ container := "scapy_web_ui"
 default:
     @just --choose
 
+# 👷 Runs a CI build.
+ci: install lint spellcheck
+
 # 👟 Runs the app!
 run:
     sudo python3 main.py
@@ -17,6 +20,38 @@ test:
 [group("test")]
 test_interactive:
     pytest --headed
+
+# 🚨 Linting all files.
+[group("lint")]
+lint: lint_nodejs lint_python
+
+# 🚨 Linting Node.js files.
+[group("lint")]
+lint_nodejs:
+    pnpm lint
+
+# 🚨 Linting Python files.
+[group("lint")]
+lint_python:
+    ruff check
+
+# 🚨 Fixing any lint errors.
+[group("lint")]
+lint_fix: lint_fix_nodejs lint_fix_python
+
+# 🚨 Fixing any Node.js lint errors.
+[group("lint")]
+lint_fix_nodejs:
+    pnpm lint:fix
+
+# 🚨 Fixing any Python lint errors.
+[group("lint")]
+lint_fix_python:
+    ruff format
+
+# 📝 Spellchecks all files.
+spellcheck:
+    pnpm spellcheck
 
 # 🧹 Removes screenshots from previous runs.
 clean:

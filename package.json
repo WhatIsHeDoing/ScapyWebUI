@@ -2,9 +2,11 @@
     "name": "scapy-web-ui",
     "version": "1.0.0",
     "description": "A simple web interface that calls functions from the Scapy framework.",
-    "main": "gulpfile.coffee",
+    "main": "static/main.js",
     "scripts": {
-        "gulp": "gulp"
+        "lint": "biome check",
+        "lint:fix": "biome check --write",
+        "spellcheck": "cspell **/*.*"
     },
     "repository": {
         "type": "git",
@@ -20,5 +22,9 @@
         "url": "https://github.com/WhatIsHeDoing/ScapyWebUI/issues"
     },
     "homepage": "https://github.com/WhatIsHeDoing/ScapyWebUI#readme",
-    "devDependencies": {}
+    "packageManager": "pnpm@10.18.3",
+    "devDependencies": {
+        "@biomejs/biome": "2.2.6",
+        "cspell": "9.2.1"
+    }
 }

@@ -1,5 +1,5 @@
 # """Scapy UI integration tests."""
-from playwright.sync_api import expect, Page
+from playwright.sync_api import Page, expect
 
 
 def init(page: Page):
