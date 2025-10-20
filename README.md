@@ -10,20 +10,21 @@ This repository demonstrates a simple web interface calling a [Flask] API to inv
 
 ## 💾 Setup
 
-Scapy has a _lot_ of optional dependencies! Those for Fedora can be installed using `make install_fedora`.
-Most of the Python dependencies can be installed using `make install_python`.
+Scapy has a _lot_ of optional dependencies! Those for Linux can be installed using `just install_fedora` and `just install_ubuntu`.
+The Node.js and Python dependencies can be installed using `just install`.
 
 ## 🚀 Run
 
-Open a terminal and run `make`. The `sudo` used in the command is often required due to file and network I/O.
+Open a terminal and run [Just]. The `sudo` used in the command is often required due to file and network I/O.
 
 ## 🧪 Test
 
-Whilst the web app is running, open a separate terminal and run the integration test suite with `make test`.
+Whilst the web app is running, open a separate terminal and run the integration test suite with `just test`.
 This uses [Playwright] headless browser tests to verify the UI works as expected.
-You can see these in a browser using `make test_interactive`.
+You can see these in a browser using `just test_interactive`.
 Screenshots of successful tests are stored in the [`screenshots`](/screenshots/) directory.
 
 [Flask]: http://flask.pocoo.org/
+[Just]: https://just.systems/
 [Playwright]: https://playwright.dev/
 [Scapy]: http://secdev.org/projects/scapy/
