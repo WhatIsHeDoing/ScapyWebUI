@@ -3,5 +3,5 @@ ecdsa == 0.19.1
 Flask == 3.1.2
 numpy == 2.3.4
 pytest-playwright == 0.7.1
-ruff == 0.14.1
+ruff == 0.14.2
 scapy == 2.6.1
