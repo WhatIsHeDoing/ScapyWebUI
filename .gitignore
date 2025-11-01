@@ -1,3 +1,6 @@
+# Spelling cache.
+.cspellcache
+
 # Logs.
 *.log
 

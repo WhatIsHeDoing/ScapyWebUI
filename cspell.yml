@@ -1,5 +1,12 @@
+cache:
+    cacheFormat: universal
+    cacheStrategy: metadata
+    useCache: true
+failFast: true
 ignorePaths:
+    - cspell.yml
     - pnpm-lock.yaml
+    - requirements.txt
 ignoreWords:
     - assumeyes
     - chromedriver
@@ -19,6 +26,6 @@ ignoreWords:
     - tcpdump
     - texlive
     - traceroute
-
 language: en-GB,en
+suggestionsTimeout: 100
 useGitignore: true
