@@ -1,6 +1,6 @@
 # Scapy Web UI
 
-[![Known Vulnerabilities](https://snyk.io/test/github/WhatIsHeDoing/ScapyWebUI/badge.svg)](https://snyk.io/test/github/WhatIsHeDoing/ScapyWebUI)
+[![Dependabot auto-approve](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml/badge.svg)](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml)
 
 ![Video](demo/scapy-web-ui.gif)
 
@@ -24,7 +24,7 @@ This uses [Playwright] headless browser tests to verify the UI works as expected
 You can see these in a browser using `just test_interactive`.
 Screenshots of successful tests are stored in the [`screenshots`](/screenshots/) directory.
 
-[Flask]: http://flask.pocoo.org/
+[Flask]: https://flask.palletsprojects.com/
 [Just]: https://just.systems/
 [Playwright]: https://playwright.dev/
-[Scapy]: http://secdev.org/projects/scapy/
+[Scapy]: https://scapy.net/
