@@ -9,7 +9,7 @@ ci: install lint spellcheck
 
 # 👟 Runs the app!
 run:
-    sudo python3 main.py
+    sudo uv run main.py
 
 # 🧪 Runs unit tests.
 [group("test")]
@@ -33,7 +33,7 @@ lint_nodejs:
 # 🚨 Linting Python files.
 [group("lint")]
 lint_python:
-    ruff check
+    uv run ruff check
 
 # 🚨 Fixing any lint errors.
 [group("lint")]
@@ -47,7 +47,7 @@ lint_fix_nodejs:
 # 🚨 Fixing any Python lint errors.
 [group("lint")]
 lint_fix_python:
-    ruff format
+    uv run ruff format
 
 # 📝 Spellchecks all files.
 spellcheck:
@@ -93,8 +93,8 @@ setup_ubuntu:
 # 💾 Installs Python dependencies.
 [group("install")]
 install_python:
-    pip3 install --ignore-installed blinker -r requirements.txt --break-system-packages
-    playwright install-deps
+    uv sync
+    uv run playwright install-deps
 
 # 💾 Installs Node.js dependencies.
 [group("install")]
@@ -108,14 +108,14 @@ docker: docker_build docker_run
 # 🐳 Builds a Docker container.
 [group("docker")]
 docker_build:
-    docker build -f Dockerfile -t {{container}} .
+    docker build -f Dockerfile -t {{ container }} .
 
 # 🐳 Runs the test Docker container API.
 [group("docker")]
 docker_run:
-    docker run -d --name scapy-web-ui -p 5000:5000 {{container}}
+    docker run -d --name scapy-web-ui -p 5000:5000 {{ container }}
 
 # 🐳 Runs the test Docker container interactively.
 [group("docker")]
 docker_run_it:
-    docker run -it {{container}}
+    docker run -it {{ container }}

@@ -7,6 +7,9 @@
 # Python compiled.
 *.pyc
 
+# Python virtual environment.
+.venv/
+
 # NPM packages.
 node_modules/
 

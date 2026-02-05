@@ -7,7 +7,8 @@ ARG USER 1000
 
 WORKDIR /build
 COPY *.py .
-COPY requirements.txt .
+COPY pyproject.toml .
+COPY uv.lock .
 COPY static/ static/
 COPY screenshots/ screenshots/
 
@@ -20,16 +21,18 @@ RUN apt-get install -y \
     apt-utils \
     build-essential \
     chromium-chromedriver \
+    curl \
     libgtk-4-dev \
     nmap \
     p0f \
-    pip \
     software-properties-common \
     tcpdump
 
-RUN pip3 install --ignore-installed blinker -r requirements.txt --break-system-packages
-RUN playwright install-deps
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
+RUN uv sync
+RUN uv run playwright install-deps
 
 #ENTRYPOINT ["/bin/bash"]
-CMD ["python3", "main.py"]
+CMD ["uv", "run", "main.py"]
 EXPOSE 5000

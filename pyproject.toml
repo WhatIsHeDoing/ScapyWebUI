@@ -1,0 +1,15 @@
+[project]
+name = "scapywebui"
+version = "0.1.0"
+description = "API to interact with Scapy"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "cryptography==46.0.3",
+    "ecdsa==0.19.1",
+    "flask==3.1.2",
+    "numpy==2.3.4",
+    "pytest-playwright==0.7.1",
+    "ruff==0.14.2",
+    "scapy==2.6.1",
+]

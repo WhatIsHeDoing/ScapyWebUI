@@ -47,7 +47,7 @@ updates:
                   - minor
                   - patch
 
-      package-ecosystem: pip
+      package-ecosystem: uv
 
       schedule:
           day: monday
