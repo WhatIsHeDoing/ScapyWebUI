@@ -11,11 +11,6 @@ ci: install lint spellcheck
 run:
     sudo uv run main.py
 
-# 🧪 Runs unit tests.
-[group("test")]
-test:
-    pytest
-
 # 🧪 Runs unit tests interactively.
 [group("test")]
 test_interactive:
