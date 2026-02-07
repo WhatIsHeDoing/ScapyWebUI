@@ -8,16 +8,14 @@ export class RouteGraph extends HTMLElement {
         this.innerHTML = ""
     }
 
-    renderDot(dot) {
-        try {
-            d3.select(this)
-                .graphviz()
-                .width(this.clientWidth)
-                .height(null)
-                .fit(true)
-                .renderDot(dot)
-        } catch (e) {
-            console.error(e)
+    renderSvg(svg) {
+        this.innerHTML = svg
+        const el = this.querySelector("svg")
+        if (el) {
+            el.removeAttribute("width")
+            el.removeAttribute("height")
+            el.style.width = "100%"
+            el.style.height = "auto"
         }
     }
 }

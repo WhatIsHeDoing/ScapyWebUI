@@ -28,6 +28,7 @@ ignoreWords:
     - tcpdump
     - texlive
     - traceroute
+    - Tsvg
 language: en-GB,en
 suggestionsTimeout: 100
 useGitignore: true

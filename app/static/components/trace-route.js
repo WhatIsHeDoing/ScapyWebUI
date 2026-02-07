@@ -117,11 +117,11 @@ export class TraceRoute extends HTMLElement {
 
                 if (!response.ok) throw new Error("Request failed")
 
-                const { graph: dot, routes } = JSON.parse(await response.text())
+                const { graph: svg, routes } = JSON.parse(await response.text())
 
                 domain.classList.add("border-green-500")
                 table.setRoutes(routes)
-                graph.renderDot(dot)
+                graph.renderSvg(svg)
             } catch {
                 showError("Oops, there was a problem with that domain.")
                 table.clear()

@@ -1,5 +1,6 @@
 import http
 import re
+import subprocess
 
 from flask import Flask, abort, json, render_template
 from flask_compress import Compress
@@ -35,17 +36,26 @@ def trace_route(domain):
     # Run trace route.
     result, _ = traceroute([domain], dport=[80, 443], maxttl=20, retry=-2)
 
-    # Convert to a dot graph.
+    # Convert to a dot graph, then render as SVG via graphviz.
     dot = result.graph(string=True)
+
+    svg = subprocess.run(
+        ["dot", "-Tsvg"],  # noqa: S603, S607
+        input=dot,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
 
     # Project simple details of the routes taken.
     routes = [(tcp.dst, ip.sprintf("%dst%:%sport%")) for tcp, ip in result]
 
     # Cache and return the result.
-    result = json.dumps({"graph": dot, "routes": routes})
+    result = json.dumps({"graph": svg, "routes": routes})
 
     if len(cached_trace_routes) < MAX_CACHE_SIZE:
         cached_trace_routes[domain] = result
+
     return result
 
 
