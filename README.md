@@ -1,5 +1,6 @@
 # Scapy Web UI
 
+[![build](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/build.yml/badge.svg)](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/build.yml)
 [![Dependabot auto-approve](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml/badge.svg)](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml)
 
 ![Example](demo/example.png)
