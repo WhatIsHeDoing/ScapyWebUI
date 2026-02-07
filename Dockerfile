@@ -1,16 +1,7 @@
 FROM ubuntu:24.04
-USER root
 
 # https://stackoverflow.com/a/35976127
-ARG DEBIAN_FRONTEND noninteractive
-ARG USER 1000
-
-WORKDIR /build
-COPY app/ app/
-COPY tests/ tests/
-COPY pyproject.toml .
-COPY uv.lock .
-COPY screenshots/ screenshots/
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get -y install apt-utils dialog && \
@@ -30,9 +21,16 @@ RUN apt-get install -y \
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
 
+WORKDIR /build
+
+# Install Python dependencies first for layer caching.
+COPY pyproject.toml uv.lock ./
 RUN uv sync
 RUN uv run playwright install-deps
 
-#ENTRYPOINT ["/bin/bash"]
-CMD ["uv", "run", "app/main.py"]
+# Copy application code last (changes most often).
+COPY app/ app/
+COPY tests/ tests/
+
 EXPOSE 5000
+CMD ["uv", "run", "app/main.py"]

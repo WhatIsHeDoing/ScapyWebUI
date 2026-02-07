@@ -1,8 +1,13 @@
-from flask import Flask, json, render_template
+import re
+
+from flask import Flask, abort, json, render_template
 from scapy.layers.inet import traceroute
 
 app = Flask(__name__)
 cached_trace_routes = {}
+
+DOMAIN_PATTERN = re.compile(r"^(?!-)([a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}$")
+MAX_CACHE_SIZE = 1024
 
 
 @app.route("/")
@@ -14,6 +19,9 @@ def index():
 @app.route("/api/traceroute/<domain>")
 def trace_route(domain):
     """Performs a trace route and returns the SVG graph."""
+    if not DOMAIN_PATTERN.match(domain):
+        abort(400, description="Invalid domain name.")
+
     # http://scapy.readthedocs.io/en/latest/usage.html#tcp-traceroute-2
     # Return the cached domain if it exists.
     if domain in cached_trace_routes:
@@ -31,7 +39,8 @@ def trace_route(domain):
     # Cache and return the result.
     result = json.dumps({"graph": dot, "routes": routes})
 
-    cached_trace_routes[domain] = result
+    if len(cached_trace_routes) < MAX_CACHE_SIZE:
+        cached_trace_routes[domain] = result
     return result
 
 

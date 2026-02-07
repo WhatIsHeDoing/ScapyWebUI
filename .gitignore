@@ -7,14 +7,23 @@
 # Logs.
 *.log
 
-# Python compiled.
+# Python.
 *.pyc
+__pycache__/
+*.egg-info/
 
 # Python virtual environment.
 .venv/
 
+# Linter cache.
+.ruff_cache/
+
+# Test caches and evidence.
+.pytest_cache/
+screenshots/
+
+# Environment variables.
+.env
+
 # NPM packages.
 node_modules/
-
-# Integration test evidence.
-screenshots/

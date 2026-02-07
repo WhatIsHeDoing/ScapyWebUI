@@ -13,3 +13,12 @@ dependencies = [
     "ruff==0.14.2",
     "scapy==2.6.1",
 ]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
