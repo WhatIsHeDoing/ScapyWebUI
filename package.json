@@ -2,7 +2,7 @@
     "name": "scapy-web-ui",
     "version": "1.0.0",
     "description": "A simple web interface that calls functions from the Scapy framework.",
-    "main": "static/main.js",
+    "main": "app/static/main.js",
     "scripts": {
         "lint": "biome check",
         "lint:fix": "biome check --write",

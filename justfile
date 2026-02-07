@@ -9,7 +9,7 @@ ci: install lint spellcheck
 
 # 👟 Runs the app!
 run:
-    sudo uv run main.py
+    sudo uv run app/main.py
 
 # 🧪 Runs unit tests interactively.
 [group("test")]

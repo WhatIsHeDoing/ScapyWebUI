@@ -6,10 +6,10 @@ ARG DEBIAN_FRONTEND noninteractive
 ARG USER 1000
 
 WORKDIR /build
-COPY *.py .
+COPY app/ app/
+COPY tests/ tests/
 COPY pyproject.toml .
 COPY uv.lock .
-COPY static/ static/
 COPY screenshots/ screenshots/
 
 RUN apt-get update && \
@@ -34,5 +34,5 @@ RUN uv sync
 RUN uv run playwright install-deps
 
 #ENTRYPOINT ["/bin/bash"]
-CMD ["uv", "run", "main.py"]
+CMD ["uv", "run", "app/main.py"]
 EXPOSE 5000

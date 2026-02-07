@@ -1,7 +1,7 @@
 from flask import Flask, json, render_template
 from scapy.layers.inet import traceroute
 
-app = Flask("ScapyUI")
+app = Flask(__name__)
 cached_trace_routes = {}
 
 
