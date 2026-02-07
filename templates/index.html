@@ -8,74 +8,37 @@
 
     <title>Scapy Web UI</title>
 
-    <link rel="stylesheet" crossorigin="anonymous"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u">
-    <link rel="stylesheet" crossorigin="anonymous"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp">
-
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script defer crossorigin="anonymous" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="//d3js.org/d3.v4.min.js"></script>
-    <script defer src="//viz-js.com/bower_components/viz.js/viz-lite.js"></script>
-    <script defer src="//github.com/magjac/d3-graphviz/releases/download/v0.0.4/d3-graphviz.min.js"></script>
-    <script defer src="/static/main.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3-graphviz/5.6.0/d3-graphviz.min.js" integrity="sha512-Le8HpIpS2Tc7SDHLM6AOgAKq6ZR4uDwLhjPSR20DtXE5dFb9xECHRwgpc1nxxnU0Dv+j6FNMoSddky5gyvI3lQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer type="module" src="/static/main.js"></script>
 </head>
 
-<body>
-    <div class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="navbar-brand">
-                    Scapy Web UI
-                </div>
-            </div>
+<body class="bg-gray-50 dark:bg-gray-950 min-h-screen">
+    <nav class="bg-gray-900 text-white shadow">
+        <div class="max-w-5xl mx-auto px-4 py-3">
+            <span class="text-lg font-semibold">Scapy Web UI</span>
         </div>
-    </div>
+    </nav>
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Scapy Web UI</h1>
-            <p>
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <section class="mb-8 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-lg p-8">
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Scapy Web UI</h1>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">
                 This Single Page App provides simple hooks into Scapy
                 &mdash; via Flask &mdash; to query and visualise network traffic.
             </p>
-        </div>
+        </section>
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Trace Route</h3>
+        <section class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden">
+            <div class="bg-blue-600 px-6 py-3">
+                <h2 class="text-white font-semibold">Trace Route</h2>
             </div>
-            <div class="panel-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form>
-                                <div class="form-group">
-                                    <label class="control-label" for="domain">Domain</label>
-                                    <input type="text" class="form-control" id="domain"
-                                        placeholder="e.g. www.duckduckgo.com">
-                                    <span class="help-block"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button id="search" type="button" class="btn btn-default btn-block">
-                                        Search
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div id="table" class="col-md-4"></div>
-                        <div id="graph" class="col-md-8"></div>
-                    </div>
-                </div>
+            <div class="p-6">
+                <trace-route></trace-route>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 
 </html>

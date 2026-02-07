@@ -2,7 +2,7 @@
 
 [![Dependabot auto-approve](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml/badge.svg)](https://github.com/WhatIsHeDoing/ScapyWebUI/actions/workflows/dependabot-approve.yml)
 
-![Video](demo/scapy-web-ui.gif)
+![Example](demo/example.png)
 
 ## 👋 Introduction
 

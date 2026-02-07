@@ -1,3 +1,6 @@
+# Temporary files.
+.DS_Store
+
 # Spelling cache.
 .cspellcache
 
