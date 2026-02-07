@@ -10,7 +10,6 @@ export class RouteGraph extends HTMLElement {
 
     renderDot(dot) {
         try {
-            console.log(dot)
             d3.select(this)
                 .graphviz()
                 .width(this.clientWidth)
