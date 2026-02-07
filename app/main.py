@@ -1,9 +1,14 @@
+import http
 import re
 
 from flask import Flask, abort, json, render_template
+from flask_compress import Compress
 from scapy.layers.inet import traceroute
 
+http.server.BaseHTTPRequestHandler.version_string = lambda x: "ScapyWebUI/1.0"
+
 app = Flask(__name__)
+Compress(app)
 cached_trace_routes = {}
 
 DOMAIN_PATTERN = re.compile(r"^(?!-)([a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}$")
@@ -45,4 +50,4 @@ def trace_route(domain):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(use_reloader=True)
