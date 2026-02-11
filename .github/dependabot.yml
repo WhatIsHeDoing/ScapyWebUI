@@ -47,6 +47,9 @@ updates:
                   - minor
                   - patch
 
+      ignore:
+          - versions: ["*.*.*rc*"]
+
       package-ecosystem: uv
 
       schedule:

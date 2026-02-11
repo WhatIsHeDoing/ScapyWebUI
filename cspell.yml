@@ -32,3 +32,5 @@ ignoreWords:
 language: en-GB,en
 suggestionsTimeout: 100
 useGitignore: true
+words:
+    - cooldown
