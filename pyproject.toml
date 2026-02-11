@@ -5,7 +5,7 @@ description = "API to interact with Scapy"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "cryptography==46.0.3",
+    "cryptography==46.0.5",
     "ecdsa==0.19.1",
     "flask==3.1.2",
     "flask-compress==1.23",
