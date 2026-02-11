@@ -519,11 +519,11 @@ wheels = [
 
 [[package]]
 name = "scapy"
-version = "2.6.1"
+version = "2.7.0rc1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/df/2f/035d3888f26d999e9680af8c7ddb7ce4ea0fd8d0e01c000de634c22dcf13/scapy-2.6.1.tar.gz", hash = "sha256:7600d7e2383c853e5c3a6e05d37e17643beebf2b3e10d7914dffcc3bc3c6e6c5", size = 2247754, upload-time = "2024-11-05T08:43:23.488Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/88/9f43eb9cdf704621ad69f069e886abb4dd6eb892f17675fdf7656d310626/scapy-2.7.0rc1.tar.gz", hash = "sha256:826ee58fe17beaba3a39e600cec6289db328ef005456c62c153242cd39d08203", size = 2394336, upload-time = "2025-11-02T21:15:36.968Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4b/34/8695b43af99d0c796e4b7933a0d7df8925f43a8abdd0ff0f6297beb4de3a/scapy-2.6.1-py3-none-any.whl", hash = "sha256:88a998572049b511a1f3e44f4aa7c62dd39c6ea2aa1bb58434f503956641789d", size = 2420670, upload-time = "2024-11-05T08:43:21.285Z" },
+    { url = "https://files.pythonhosted.org/packages/68/2c/72442f41e604f57ff9c56eb62743c13047bd146ab6435dfa7ee92c9e9494/scapy-2.7.0rc1-py3-none-any.whl", hash = "sha256:7f73adae9b05c760fc451a8edbe2795b5bcdf84db3d52d6725b80c1d1554093d", size = 2571513, upload-time = "2025-11-02T21:12:26.959Z" },
 ]
 
 [[package]]
@@ -550,7 +550,7 @@ requires-dist = [
     { name = "numpy", specifier = "==2.3.4" },
     { name = "pytest-playwright", specifier = "==0.7.1" },
     { name = "ruff", specifier = "==0.14.2" },
-    { name = "scapy", specifier = "==2.6.1" },
+    { name = "scapy", specifier = "==2.7.0rc1" },
 ]
 
 [[package]]

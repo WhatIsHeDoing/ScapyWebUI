@@ -12,7 +12,7 @@ dependencies = [
     "numpy==2.3.4",
     "pytest-playwright==0.7.1",
     "ruff==0.14.2",
-    "scapy==2.6.1",
+    "scapy==2.7.0rc1",
 ]
 
 [tool.ruff]
