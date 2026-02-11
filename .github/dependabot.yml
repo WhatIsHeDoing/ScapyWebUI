@@ -48,7 +48,8 @@ updates:
                   - patch
 
       ignore:
-          - versions: ["*.*.*rc*"]
+          - dependency-name: "*"
+            versions: ["*.*.*rc*"]
 
       package-ecosystem: uv
 
