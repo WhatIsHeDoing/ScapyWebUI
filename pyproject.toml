@@ -9,10 +9,10 @@ dependencies = [
     "ecdsa==0.19.1",
     "flask==3.1.2",
     "flask-compress==1.23",
-    "numpy==2.3.4",
+    "numpy==2.4.1",
     "pytest-playwright==0.7.1",
     "ruff==0.14.2",
-    "scapy==2.6.1",
+    "scapy==2.7.0",
 ]
 
 [tool.ruff]
