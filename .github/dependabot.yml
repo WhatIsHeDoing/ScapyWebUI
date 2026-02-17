@@ -1,4 +1,31 @@
+# This consolidates updates into a maximum of 2 PRs.
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
+
 updates:
+    - cooldown:
+          default-days: 14
+
+      directories:
+          - /
+
+      groups:
+          major:
+              update-types:
+                  - major
+
+          minor-and-patch:
+              update-types:
+                  - minor
+                  - patch
+
+      package-ecosystem: github-actions
+
+      schedule:
+          day: monday
+          interval: monthly
+          time: "20:00"
+          timezone: Europe/London
+
     - cooldown:
           default-days: 14
           semver-major-days: 30
@@ -7,8 +34,6 @@ updates:
 
       directory: /
 
-      # This consolidates updates into a maximum of 2 PRs.
-      # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
       groups:
           major:
               update-types:
@@ -35,8 +60,6 @@ updates:
 
       directory: /
 
-      # This consolidates updates into a maximum of 2 PRs.
-      # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
       groups:
           major:
               update-types:

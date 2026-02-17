@@ -41,6 +41,12 @@ jobs:
               name: Approve the Dependabot PR
               run: gh pr review --approve "$PR_URL"
 
+            - env:
+                  GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  PR_URL: ${{github.event.pull_request.html_url}}
+              name: Merge and delete the branch
+              run: gh pr merge --squash --delete-branch "$PR_URL"
+
 name: Dependabot auto-approve
 on: pull_request
 permissions:
