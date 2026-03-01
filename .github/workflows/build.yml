@@ -3,6 +3,7 @@ env:
 
 jobs:
     build:
+        if: github.actor != 'dependabot[bot]'
         # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
         runs-on: ubuntu-24.04
         steps:

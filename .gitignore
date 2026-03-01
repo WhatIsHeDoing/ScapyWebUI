@@ -27,3 +27,6 @@ screenshots/
 
 # NPM packages.
 node_modules/
+
+# Claude settings.
+.claude/
