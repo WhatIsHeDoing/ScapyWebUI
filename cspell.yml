@@ -10,6 +10,7 @@ ignorePaths:
     - uv.lock
 ignoreWords:
     - assumeyes
+    - biomejs
     - chromedriver
     - darrenhickling
     - debconf

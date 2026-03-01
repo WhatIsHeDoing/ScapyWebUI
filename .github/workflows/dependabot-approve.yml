@@ -9,6 +9,7 @@ jobs:
 
         steps:
             - name: Fetch the Dependabot metadata
+              id: dependabot-metadata
               uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
               with:
                   github-token: "${{ secrets.GITHUB_TOKEN }}"
@@ -28,6 +29,18 @@ jobs:
 
             - name: Install dependencies
               run: just install
+
+            - name: Run biome migrate after upgrade
+              if: contains(steps.dependabot-metadata.outputs.dependency-names, '@biomejs/biome')
+              run: |
+                  pnpm biome migrate --fix
+                  if ! git diff --quiet; then
+                      git config user.name "github-actions[bot]"
+                      git config user.email "github-actions[bot]@users.noreply.github.com"
+                      git add -A
+                      git commit -m "chore: run biome migrate after upgrade"
+                      git push
+                  fi
 
             - name: Lint
               run: just lint
