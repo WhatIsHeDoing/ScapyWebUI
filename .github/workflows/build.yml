@@ -33,7 +33,13 @@ name: build
 
 on:
     pull_request:
+        paths-ignore:
+            - "**.md"
+            - ".github/dependabot.yml"
     push:
         branches:
             - main
+        paths-ignore:
+            - "**.md"
+            - ".github/dependabot.yml"
     workflow_dispatch:
