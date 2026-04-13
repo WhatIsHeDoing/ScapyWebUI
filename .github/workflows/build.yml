@@ -12,7 +12,7 @@ jobs:
 
             # https://just.systems/man/en/github-actions.html
             - name: Install Just
-              uses: extractions/setup-just@v3
+              uses: extractions/setup-just@v4
 
             - name: Install uv
               uses: astral-sh/setup-uv@v7
