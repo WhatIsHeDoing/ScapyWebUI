@@ -18,7 +18,7 @@ jobs:
               uses: astral-sh/setup-uv@v8.1.0
 
             - name: Install pnpm
-              uses: pnpm/action-setup@v6.0.5
+              uses: pnpm/action-setup@v6.0.8
 
             - name: Install dependencies
               run: just install
