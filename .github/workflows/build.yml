@@ -8,14 +8,14 @@ jobs:
         runs-on: ubuntu-24.04
         steps:
             - name: Checkout
-              uses: actions/checkout@v6.0.2
+              uses: actions/checkout@v6.0.3
 
             # https://just.systems/man/en/github-actions.html
             - name: Install Just
               uses: extractions/setup-just@v4
 
             - name: Install uv
-              uses: astral-sh/setup-uv@v8.1.0
+              uses: astral-sh/setup-uv@v8.2.0
 
             - name: Install pnpm
               uses: pnpm/action-setup@v6.0.8
